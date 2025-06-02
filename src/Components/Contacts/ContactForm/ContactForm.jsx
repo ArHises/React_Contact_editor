@@ -1,22 +1,21 @@
 import { useState, useEffect } from "react";
-
+import { useContacts } from "../ContactsContext/ContactsContext";
 import {
-    Button,
     Container,
     Form,
     FormGroup,
     Label,
     Input,
+    Button,
     Alert,
 } from "reactstrap";
 
 export default function ContactForm({
-    onAdd,
     initialData = { name: "", email: "", message: "" },
     isEdit = false,
-    onEdit,
     closeModal,
 }) {
+    const { addContact, updateContact } = useContacts();
     const [formData, setFormData] = useState(initialData);
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState("");
@@ -43,18 +42,14 @@ export default function ContactForm({
         }
         setError("");
         if (isEdit) {
-            onEdit(formData);
+            updateContact(formData);
+            if (closeModal) closeModal();
         } else {
-            onAdd(formData);
+            addContact(formData);
             setSubmitted(true);
             setTimeout(() => {
                 setSubmitted(false);
-                setFormData({
-                    id: 0,
-                    name: "",
-                    email: "",
-                    message: "",
-                });
+                setFormData({ id: 0, name: "", email: "", message: "" });
                 if (closeModal) closeModal();
             }, 1000);
         }

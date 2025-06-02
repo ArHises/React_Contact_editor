@@ -4,10 +4,8 @@ import { Modal, ModalHeader, ModalBody } from "reactstrap";
 export default function ContactModal({
     isOpen,
     toggle,
-    onAdd,
     initialData,
     isEdit,
-    onEdit,
     closeModal,
 }) {
     return (
@@ -17,10 +15,8 @@ export default function ContactModal({
             </ModalHeader>
             <ModalBody>
                 <ContactForm
-                    onAdd={onAdd}
                     initialData={initialData}
                     isEdit={isEdit}
-                    onEdit={onEdit}
                     closeModal={closeModal}
                 />
             </ModalBody>
