@@ -16,7 +16,7 @@ import {
     ModalBody,
 } from "reactstrap";
 
-function ContactList({ contacts, onEdit }) {
+function ContactList({ contacts, onEdit, onDelete }) {
     return (
         <Card className="contact-list">
             {contacts.map((contact, index) => (
@@ -30,6 +30,13 @@ function ContactList({ contacts, onEdit }) {
                         onClick={() => onEdit(index)}>
                         Edit
                     </Button>
+                    <Button
+                        className="delete-button"
+                        color="danger"
+                        size="sm"
+                        onClick={() => onDelete(contact.id)}>
+                        Delete
+                    </Button>
                 </CardBody>
             ))}
         </Card>
@@ -38,13 +45,10 @@ function ContactList({ contacts, onEdit }) {
 
 function ContactForm({
     onAdd,
-    initialData = {
-        name: "",
-        email: "",
-        message: "",
-    },
+    initialData = { name: "", email: "", message: "" },
     isEdit = false,
     onEdit,
+    closeModal,
 }) {
     const [formData, setFormData] = useState(initialData);
     const [submitted, setSubmitted] = useState(false);
@@ -67,16 +71,20 @@ function ContactForm({
         }
         setError("");
         if (isEdit) {
-            onEdit(formData); // formData includes id
+            onEdit(formData);
         } else {
-            onAdd(formData); // id will be assigned in addContact
+            onAdd(formData);
             setSubmitted(true);
-            setFormData({
-                id: 0,
-                name: "",
-                email: "",
-                message: "",
-            });
+            setTimeout(() => {
+                setSubmitted(false);
+                setFormData({
+                    id: 0,
+                    name: "",
+                    email: "",
+                    message: "",
+                });
+                if (closeModal) closeModal();
+            }, 1000);
         }
     };
 
@@ -135,7 +143,15 @@ function ContactForm({
     );
 }
 
-function ContactModal({ isOpen, toggle, onAdd, initialData, isEdit, onEdit }) {
+function ContactModal({
+    isOpen,
+    toggle,
+    onAdd,
+    initialData,
+    isEdit,
+    onEdit,
+    closeModal,
+}) {
     return (
         <Modal isOpen={isOpen} toggle={toggle}>
             <ModalHeader toggle={toggle}>
@@ -147,6 +163,7 @@ function ContactModal({ isOpen, toggle, onAdd, initialData, isEdit, onEdit }) {
                     initialData={initialData}
                     isEdit={isEdit}
                     onEdit={onEdit}
+                    closeModal={closeModal}
                 />
             </ModalBody>
         </Modal>
@@ -221,13 +238,16 @@ export default function Contact() {
             id: Date.now(),
         };
         setContacts([...contacts, newContact]);
-        setModalOpen(false);
     };
 
     const editContact = (index) => {
         setIsEdit(true);
         setInitialData(contacts[index]);
         setModalOpen(true);
+    };
+
+    const deleteContact = (id) => {
+        setContacts(contacts.filter((contact) => contact.id !== id));
     };
 
     const updateContact = (updatedContact) => {
@@ -242,8 +262,13 @@ export default function Contact() {
 
     return (
         <div className="contacts">
-            <ContactList contacts={contacts} onEdit={editContact} />
+            <ContactList
+                contacts={contacts}
+                onEdit={editContact}
+                onDelete={deleteContact}
+            />
             <Button
+                className="add-contact-button"
                 color="primary"
                 onClick={() => {
                     setIsEdit(false);
@@ -264,6 +289,7 @@ export default function Contact() {
                 initialData={initialData}
                 isEdit={isEdit}
                 onEdit={updateContact}
+                closeModal={() => setModalOpen(false)}
             />
         </div>
     );

@@ -8,4 +8,21 @@
 
 .contact-list {
     background-color: #9e9e9e;
+    box-shadow: #202020 0px 0px 10px;
+}
+
+.contact-item:not(:last-child) {
+    border-bottom: 2px solid #414141;
+}
+
+body {
+    background-color: #202020;
+}
+
+.delete-button {
+    margin-left: 10px;
+}
+
+.add-contact-button {
+    margin-top: 10px;
 }
