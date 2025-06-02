@@ -5,23 +5,16 @@ export default function Blogs() {
     return (
         <Container className="blogs-container">
             <div className="blog-title">Blogs</div>
-            <ul className="blog-list">
-                <li>
-                    <a href="#" className="blog-link">
-                        How to use React Context
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="blog-link">
-                        Styling in React: Best Practices
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="blog-link">
-                        React Router Tips and Tricks
-                    </a>
-                </li>
-            </ul>
+
+            <a href="#" className="blog-link">
+                <h5>Lorem ipsum dolor sit amet.</h5>
+            </a>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Nesciunt doloremque dolore perferendis, optio blanditiis
+                deleniti eveniet, ea voluptatum aliquid repellat minima illo
+                corrupti, unde natus neque ducimus ipsam ad! Error.
+            </p>
         </Container>
     );
 }

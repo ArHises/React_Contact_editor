@@ -14,7 +14,7 @@ export default function Layout() {
                         <Link to="/blogs">Blogs</Link>
                     </BreadcrumbItem>
                     <BreadcrumbItem>
-                        <Link to="/contact-mngr">Contacts</Link>
+                        <Link to="/contact-mngr">Comments</Link>
                     </BreadcrumbItem>
                     <BreadcrumbItem>
                         <Link to="/contact">Contacts</Link>
