@@ -1,0 +1,25 @@
+body {
+    background-color: #dfdfdf;
+}
+
+.no-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 80vh;
+    padding-top: 60px;
+}
+
+.no-page-title {
+    font-size: 3rem;
+    color: #d32f2f;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+.no-page-message {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 24px;
+}

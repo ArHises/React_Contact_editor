@@ -1,0 +1,36 @@
+.contacts-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(32, 32, 32, 0.12);
+    padding: 32px 28px;
+    color: #222;
+}
+
+.contacts-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 18px;
+    color: #1976d2;
+}
+
+.contacts-form {
+    margin-bottom: 32px;
+}
+
+.contacts-list {
+    margin-top: 24px;
+}
+
+.contacts-list .contact-item {
+    background: #f7f7f7;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px rgba(32, 32, 32, 0.06);
+}
+
+.contacts-list .contact-item:last-child {
+    margin-bottom: 0;
+}

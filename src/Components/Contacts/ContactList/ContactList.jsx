@@ -20,19 +20,21 @@ export default function ContactList({ onEdit }) {
                     <CardTitle tag="h3">{contact.name}</CardTitle>
                     <CardText>Email: {contact.email}</CardText>
                     <CardText>Message: {contact.message}</CardText>
-                    <Button
-                        color="secondary"
-                        size="sm"
-                        onClick={() => onEdit(contact)}>
-                        Edit
-                    </Button>
-                    <Button
-                        color="danger"
-                        size="sm"
-                        className="delete-button"
-                        onClick={() => deleteContact(contact.id)}>
-                        Delete
-                    </Button>
+                    <div className="contact-actions">
+                        <Button
+                            color="secondary"
+                            size="sm"
+                            onClick={() => onEdit(contact)}>
+                            Edit
+                        </Button>
+                        <Button
+                            color="danger"
+                            size="sm"
+                            className="delete-button"
+                            onClick={() => deleteContact(contact.id)}>
+                            Delete
+                        </Button>
+                    </div>
                 </CardBody>
             ))}
         </Card>

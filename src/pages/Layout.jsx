@@ -1,23 +1,27 @@
 import { Outlet, Link } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem, Container } from "reactstrap";
+import "./Layout.css";
 
 export default function Layout() {
-  return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/blogs">Blogs</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <Outlet />
-    </>
-  )
-};
+    return (
+        <Container fluid>
+            <nav>
+                <Breadcrumb className="breadcrumb">
+                    <BreadcrumbItem>
+                        <Link to="/">Home</Link>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                        <Link to="/blogs">Blogs</Link>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                        <Link to="/contact-mngr">Contacts</Link>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                        <Link to="/contact">Contacts</Link>
+                    </BreadcrumbItem>
+                </Breadcrumb>
+            </nav>
+            <Outlet />
+        </Container>
+    );
+}

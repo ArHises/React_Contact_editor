@@ -1,12 +1,14 @@
-import { ContactsProvider } from "./ContactsContext/ContactsContext";
-import ContactList from "./ContactList/ContactList";
-import ContactModal from "./ContactModal/ContactModal";
+import { ContactsProvider } from "./ContactsContext/ContactsContext.jsx";
+import ContactList from "./ContactList/ContactList.jsx";
+import ContactModal from "./ContactModal/ContactModal.jsx";
 import { useState, useContext } from "react";
 import { Button } from "reactstrap";
 
+import "./ContactManager.css";
+
 import { ThemeProvider, ThemeContext } from "./ThemeContext/ThemeContext.jsx";
 
-export default function Contact() {
+export default function ContactManeger() {
     const [modalOpen, setModalOpen] = useState(false);
     const [isEdit, setIsEdit] = useState(false);
     const [initialData, setInitialData] = useState({
@@ -63,7 +65,7 @@ function ThemeConsumerContent({
     return (
         <div className="contacts">
             <Button className="theme-toggle-button" onClick={toggleTheme}>
-                theame: {theme}
+                theme: {theme}
             </Button>
             <ContactList onEdit={handleEdit} />
             <Button

@@ -1,26 +1,84 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #dfdfdf;
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
 .App {
     text-align: center;
-    font-family: Arial, sans-serif;
     background-color: #414141;
     color: #d3e4f3;
-    padding: 20px;
+    padding: 40px 30px 30px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(32, 32, 32, 0.2);
+    min-width: 350px;
+    max-width: 600px;
+    margin: 40px auto;
 }
 
 .theme-toggle-button {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    color: #888;
+    content: "/";
+    padding: 0 8px;
+}
+
+.breadcrumb .breadcrumb-item a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.breadcrumb .breadcrumb-item a:hover {
+    color: #125ea2;
+    text-decoration: underline;
 }
 
 .contact-list {
-    background-color: #9e9e9e;
+    background-color: #fff;
+    color: #222;
     box-shadow: #202020 0px 0px 10px;
+    border-radius: 12px;
+    margin: 0 auto 24px auto;
+    padding: 20px 0 0 0;
+    max-width: 500px;
 }
 
 .contact-item:not(:last-child) {
-    border-bottom: 2px solid #414141;
+    border-bottom: 2px solid #e0e0e0;
 }
 
-body {
-    background-color: #202020;
+.contact-item {
+    padding: 18px 24px 12px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .delete-button {
@@ -28,7 +86,9 @@ body {
 }
 
 .add-contact-button {
-    margin-top: 10px;
+    margin-top: 18px;
+    border-radius: 8px;
+    font-weight: bold;
 }
 
 .light-theme {
